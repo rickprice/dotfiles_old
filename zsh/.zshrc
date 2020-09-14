@@ -42,7 +42,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%b'
+zstyle ':vcs_info:git:*' formats '%r:%b'
 
 # Set up the prompt | $AS_PLATFORM is only set inside the Docker image
 setopt PROMPT_SUBST
