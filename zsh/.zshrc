@@ -44,6 +44,6 @@ precmd() { vcs_info }
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats '%b'
 
-# Set up the prompt
+# Set up the prompt | $AS_PLATFORM is only set inside the Docker image
 setopt PROMPT_SUBST
-PROMPT='%1~ %F{green}${vcs_info_msg_0_}%f $ '
+PROMPT='%F{green}[${vcs_info_msg_0_}]%f-%{$fg[magenta]%}[$AS_PLATFORM]-%{$fg[yellow]%}[%1d]%{$fg[white]%}%% '
