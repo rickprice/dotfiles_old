@@ -1,4 +1,4 @@
 let g:indentLine_char = '⦙'
 set foldmethod=syntax
-set foldlevelstart=99
-
+set foldlevelstart=20
+autocmd BufWinEnter * silent! :%foldopen!
