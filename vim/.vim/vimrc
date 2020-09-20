@@ -36,6 +36,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'neoclide/coc-git'
 Plugin 'rust-lang/rust.vim'
+Plugin 'ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,9 +53,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Useful settings
-syntax on
-
+" Ale settings
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -76,3 +75,46 @@ if has ("autocmd")
     " File type detection. Indent based on filetype. Recommended.
     filetype plugin indent on
 endif
+
+" Useful settings
+syntax on " Turn on syntax highlighing
+
+" -- Display
+set title                 " Update the title of your window or your terminal
+" set number                " Display line numbers
+" set ruler                 " Display cursor position
+" set wrap                  " Wrap lines when they are too long
+
+set scrolloff=3           " Display at least 3 lines around you cursor
+                          " (for scrolling)
+
+" set guioptions=T          " Enable the toolbar
+
+" -- Search
+set ignorecase            " Ignore case when searching
+set smartcase             " If there is an uppercase in your search term
+                          " search case sensitive again
+set incsearch             " Highlight search results when typing
+set hlsearch              " Highlight search results
+
+" -- Beep
+set visualbell            " Prevent Vim from beeping
+set noerrorbells          " Prevent Vim from beeping
+
+" Backspace behaves as expected
+set backspace=indent,eol,start
+
+" Hide buffer (file) instead of abandoning when switching
+" to another buffer
+set hidden
+
+" Folding settings
+set foldlevelstart=20
+autocmd BufWinEnter * silent! :%foldopen!
+
+" Set leader key
+let mapleader = ","
+
+" Another way to do <esc>
+" Press the j 2 times in row 
+:imap jj <Esc>
