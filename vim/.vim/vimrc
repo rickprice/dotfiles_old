@@ -117,3 +117,7 @@ let mapleader = ","
 " Another way to do <esc>
 " Press the j 2 times in row 
 :imap jj <Esc>
+
+" CtrlP setup
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
