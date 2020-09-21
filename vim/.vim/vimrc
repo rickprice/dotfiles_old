@@ -36,6 +36,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'neoclide/coc-git'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ctrlp.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'Konfekt/FastFold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
