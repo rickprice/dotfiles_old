@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Set leader key
+let mapleader = ","
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -58,6 +61,8 @@ filetype plugin indent on    " required
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
+" let g:ale_sign_error = '●'
+" let g:ale_sign_warning = '.'
 let g:ale_lint_on_text_changed = 'never'
 
 nmap <silent> <leader>aj :ALENext<cr>
@@ -112,9 +117,6 @@ set hidden
 " Folding settings
 set foldlevelstart=20
 autocmd BufWinEnter * silent! :%foldopen!
-
-" Set leader key
-let mapleader = ","
 
 " Another way to do <esc>
 " Press the j 2 times in row 
