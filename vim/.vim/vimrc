@@ -41,6 +41,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'ctrlp.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Konfekt/FastFold'
+Plugin 'tpope/vim-unimpared'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
