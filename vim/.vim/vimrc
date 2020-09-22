@@ -125,3 +125,8 @@ autocmd BufWinEnter * silent! :%foldopen!
 " CtrlP setup
 nnoremap <Leader>b :CtrlPBuffer<CR>
 
+" Setup backup, swap, etc directories
+set backupdir=.backup/,~/.vim/backup/,/tmp//
+set directory=.swp/,~/.vim/swp/,/tmp//
+set undodir=.undo/,~/.vim/undo/,/tmp//
+set undofile
