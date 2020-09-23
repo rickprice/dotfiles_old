@@ -50,6 +50,6 @@ PROMPT='%F{green}[${vcs_info_msg_0_}]%f-%{$fg[magenta]%}[$AS_PLATFORM]-%{$fg[yel
 
 # Setup ZFZ and RG
 if type rg &> /dev/null; then
-      export FZF_DEFAULT_COMMAND='rg --files'
-        export FZF_DEFAULT_OPTS='-m --height 50% --border'
+     export FZF_DEFAULT_COMMAND='rg --files'
+     export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
