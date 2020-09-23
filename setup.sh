@@ -8,6 +8,7 @@ git submodule update
 stow zsh
 stow bash
 stow vim
+stow local
 
 vim +PluginInstall +qall
 vim +PluginClean +qall
