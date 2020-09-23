@@ -31,12 +31,6 @@ autoload -U colors && colors
 # Personal bin path
 export PATH=~/.local/bin:$PATH
 
-# AWS Credentials
-eval $(get-aws-profile.sh)
-
-# Load my stuff
-source ~/.local/bin/UtilityShellFunctions.sh
-
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -48,8 +42,15 @@ zstyle ':vcs_info:git:*' formats '%r:%b'
 setopt PROMPT_SUBST
 PROMPT='%F{green}[${vcs_info_msg_0_}]%f-%{$fg[magenta]%}[$AS_PLATFORM]-%{$fg[yellow]%}[%1d]%{$fg[white]%}%% '
 
-# Setup ZFZ and RG
-if type rg &> /dev/null; then
-     export FZF_DEFAULT_COMMAND='rg --files'
-     export FZF_DEFAULT_OPTS='-m --height 50% --border'
-fi
+# Process our shell snippets to configure our environment
+source_files_in() {
+    local dir=$1
+
+    if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
+        for file in "$dir"/*; do
+          [[ -f "$file" && -r "$file" ]] && . "$file"
+        done
+    fi
+}
+
+source_files_in ~/.shell_snippets

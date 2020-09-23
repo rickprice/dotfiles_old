@@ -149,11 +149,16 @@ export HISTTIMEFORMAT="%y/%m/%d %H:%M:%S   "
 #PROMPT_COMMAND='history 1 >> ${HOME}/.bash_eternal_history'
 #PROMPT_COMMAND=_bash_history_sync;$PROMPT_COMMAND
 
-# Load my stuff
-source ~/bin/UtilityShellFunctions.sh
+# Process our shell snippets to configure our environment
+source_files_in() {
+    local dir=$1
 
-# Setup ZFZ and RG
-if type rg &> /dev/null; then
-     export FZF_DEFAULT_COMMAND='rg --files'
-     export FZF_DEFAULT_OPTS='-m --height 50% --border'
-fi
+    if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
+        for file in "$dir"/*; do
+          [[ -f "$file" && -r "$file" ]] && . "$file"
+        done
+    fi
+}
+
+source_files_in ~/.shell_snippets
+

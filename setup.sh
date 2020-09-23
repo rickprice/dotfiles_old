@@ -9,6 +9,7 @@ stow zsh
 stow bash
 stow vim
 stow local
+stow shell_snippets
 
 vim +PluginInstall +qall
 vim +PluginClean +qall
