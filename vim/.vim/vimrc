@@ -46,6 +46,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'masukomi/vim-markdown-folding'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
