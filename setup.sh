@@ -1,8 +1,7 @@
 #! /bin/sh
 
-# Ensure Vundle etc is in the directory
-git submodule init
-git submodule update
+# Download vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Setup the directories
 stow zsh
@@ -11,5 +10,5 @@ stow vim
 stow local
 stow shell_snippets
 
-vim +PluginInstall +qall
-vim +PluginClean +qall
+vim +PlugInstall +qall
+vim +PlugClean +qall
