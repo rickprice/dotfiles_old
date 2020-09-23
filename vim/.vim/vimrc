@@ -38,11 +38,14 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'neoclide/coc-git'
 Plugin 'rust-lang/rust.vim'
-Plugin 'ctrlp.vim'
+" Plugin 'ctrlp.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Konfekt/FastFold'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'mileszs/ack.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -125,7 +128,13 @@ autocmd BufWinEnter * silent! :%foldopen!
 :imap jj <Esc>
 
 " CtrlP setup
-nnoremap <Leader>b :CtrlPBuffer<CR>
+" nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" ZFZ Setup
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 " Setup backup, swap, etc directories
 set backupdir=.backup/,~/.vim/backup/,/tmp//
