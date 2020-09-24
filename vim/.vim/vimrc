@@ -4,16 +4,28 @@ filetype off                  " required
 " Set leader key
 let mapleader = ","
 
+" Download and install vim-plug (cross platform).
+if empty(glob(
+                \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
+  execute '!curl -fLo ' .
+      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+          \ '/autoload/plug.vim --create-dirs ' .
+              \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+                autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+                endif
+
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'psf/black'
-Plug 'pedrohdz/vim-yaml-folds'
+Plug 'junegunn/vim-plug'
+Plug 'psf/black', { 'for' : 'python' }
+Plug 'pedrohdz/vim-yaml-folds', { 'for' : 'yaml' }
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc-git'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
 " Plug 'ctrlp.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
@@ -22,7 +34,7 @@ Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'masukomi/vim-markdown-folding'
+Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 
 call plug#end()
 
