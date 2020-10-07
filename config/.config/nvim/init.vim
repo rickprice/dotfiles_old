@@ -40,7 +40,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 
 " CoC Setup
-let g:coc_global_extensions = ['coc-python', 'coc-yaml', 'coc-json', 'coc-git', 'coc-docker', 'coc-actions', 'coc-markdownlint', 'coc-perl', 'coc-sh', 'coc-fzf-preview' ]
+let g:coc_global_extensions = ['coc-python', 'coc-yaml', 'coc-json', 'coc-git', 'coc-docker', 'coc-actions', 'coc-markdownlint', 'coc-perl', 'coc-sh', 'coc-fzf-preview', 'coc-spell-checker' ]
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -230,4 +230,17 @@ set hidden
 " Folding settings
 set foldlevelstart=20
 autocmd BufWinEnter * silent! :%foldopen!
+
+" coc-spell-checker
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+" Handle indenting things
+set expandtab       "Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
+
+set autoindent      "Keep indentation from previous line
+set smartindent     "Automatically inserts indentation in some cases
+set cindent         "Like smartindent, but stricter and more customisable
 
