@@ -9,21 +9,13 @@ let mapleader = "\<Space>"
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'junegunn/vim-plug'
-" Plug 'psf/black', { 'for' : 'python' }
-Plug 'pedrohdz/vim-yaml-folds', { 'for' : 'yaml' }
-" Plug 'w0rp/ale'
-" Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-" Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
-" Plug 'tmhedberg/SimpylFold'
-" Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 " Plug 'sjl/gundo.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
