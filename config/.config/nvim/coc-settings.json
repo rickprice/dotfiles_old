@@ -1,0 +1,28 @@
+{
+	"coc.preferences.formatOnSaveFiletypes": [
+		"css",
+		"markdown",
+		"javascript",
+		"graphql",
+		"html",
+		"yaml",
+		"json",
+		"python"
+	],
+
+	// python config
+	"python.jediEnabled": true,
+	"python.linting.enabled": true,
+	"python.analysis.diagnosticEnabled": true,
+	"python.analysis.logLevel": "Information",
+
+	"python.linting.pylintEnabled": false,
+	"python.linting.pylintUseMinimalCheckers": false,
+	"python.linting.flake8Enabled": true,
+	"python.linting.mypyEnabled": true,
+
+	"python.formatting.provider": "black",
+	"python.formatting.blackArgs": ["--line-length","100"],
+
+	"coc.preferences.formatOnType": false
+}
