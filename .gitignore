@@ -1,2 +1,9 @@
 #vim/.vim/bundle/
 vim/.vim/black/
+config/.config/nvim/.netrwhist
+config/.config/nvim/plugged/
+vim/.vim/.vimundo/
+vim/.vim/undo/
+vim/.vim/autoload/
+vim/.vim/plugged/
+
