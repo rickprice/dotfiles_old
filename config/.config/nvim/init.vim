@@ -25,6 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 " Plug 'sjl/gundo.vim'
+Plug 'tommcdo/vim-exchange'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
