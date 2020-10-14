@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'effkreeftmeijer/vim-numbertoggle'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
