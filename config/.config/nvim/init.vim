@@ -18,7 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'effkreeftmeijer/vim-numbertoggle'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -197,6 +197,7 @@ set title                 " Update the title of your window or your terminal
 " set number                " Display line numbers
 " set ruler                 " Display cursor position
 " set wrap                  " Wrap lines when they are too long
+:set number relativenumber
 
 set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
