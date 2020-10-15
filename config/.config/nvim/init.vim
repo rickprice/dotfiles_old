@@ -21,6 +21,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pedrohdz/vim-yaml-folds'
 
 call plug#end()
 
