@@ -22,6 +22,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pedrohdz/vim-yaml-folds'
+" Plug 'Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -199,9 +200,6 @@ set title                 " Update the title of your window or your terminal
 " set ruler                 " Display cursor position
 " set wrap                  " Wrap lines when they are too long
 :set number relativenumber
-
-set scrolloff=3           " Display at least 3 lines around you cursor
-                          " (for scrolling)
 
 " set guioptions=T          " Enable the toolbar
 
