@@ -1,0 +1,13 @@
+# Setup ZFZ and RG
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!vendor/*'"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd --type d --follow"
+    export FZF_DEFAULT_OPTS='-m --height 50% --border'
+#export FZF_ALT_C_COMMAND="fd --type d --follow --hidden --exclude '.git'"
+    [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+    [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+# Remap CTRL-T to CTRL-F
+    bindkey -r '^T'
+    bindkey '^F' fzf-file-widget
+fi

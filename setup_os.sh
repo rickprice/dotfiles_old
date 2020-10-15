@@ -24,6 +24,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     universal-ctags \
     golang \
     locales \
+    fd-find \
     && sudo apt-get -y clean
 
 # Python setup, including for coc-nvim

@@ -1,0 +1,2 @@
+# Add alias for fdfind as fd
+alias fd=fdfind
