@@ -24,6 +24,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'Plug 'justinmk/vim-sneak'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
