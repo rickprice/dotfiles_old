@@ -112,6 +112,8 @@ set hidden
 " Folding settings
 set foldlevelstart=20
 autocmd BufWinEnter * silent! :%foldopen!
+let g:indentLine_char = '⦙'
+
 
 " Another way to do <esc>
 " Press the j 2 times in row 

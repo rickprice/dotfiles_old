@@ -21,6 +21,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'Plug 'justinmk/vim-sneak'
 
@@ -224,6 +225,7 @@ set hidden
 " Folding settings
 set foldlevelstart=20
 autocmd BufWinEnter * silent! :%foldopen!
+let g:indentLine_char = '⦙'
 
 " coc-spell-checker
 vmap <leader>a <Plug>(coc-codeaction-selected)
