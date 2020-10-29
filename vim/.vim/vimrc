@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Set leader key
-let mapleader = ","
+let mapleader = " "
 
 " Download and install vim-plug (cross platform).
 if empty(glob(
@@ -37,6 +37,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 Plug 'sjl/gundo.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 call plug#end()
 

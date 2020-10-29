@@ -25,6 +25,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'Plug 'justinmk/vim-sneak'
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 call plug#end()
 
