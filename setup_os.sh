@@ -28,6 +28,12 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     fzf \
     && sudo apt-get -y clean
 
+# Interesting software.
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+        figlet \
+    && sudo apt-get -y clean
+
 # Python setup, including for coc-nvim
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
         sudo apt-get --assume-yes install \
