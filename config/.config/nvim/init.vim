@@ -242,3 +242,8 @@ set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
 set cindent         "Like smartindent, but stricter and more customisable
 
+" toggle show whitespace
+noremap <F3> :set list!<CR>
+
+" :w!! to save with sudo
+ca w!! w !sudo tee >/dev/null "%"
