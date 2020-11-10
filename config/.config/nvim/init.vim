@@ -246,7 +246,7 @@ set cindent         "Like smartindent, but stricter and more customisable
 noremap <F3> :set list!<CR>
 
 " :w!! to save with sudo
-ca w!! w !sudo tee >/dev/null "%"
+ca w!! w !sudo -S tee >/dev/null "%"
 
 " Insert current date or date and time in insert mode
 iabbrev <silent> dst <C-R>=strftime("%Y-%m-%d")<cr>
