@@ -247,3 +247,19 @@ noremap <F3> :set list!<CR>
 
 " :w!! to save with sudo
 ca w!! w !sudo tee >/dev/null "%"
+
+" Insert current date or date and time in insert mode
+iabbrev <silent> dst <C-R>=strftime("%Y-%m-%d")<cr>
+iabbrev <silent> dstm <C-R>=strftime("%Y-%m-%d, %H:%M:%S ")<cr>
+
+" Insert current filename
+iabbrev <silent> crr <C-R>=expand('%:t:r')<cr>
+
+" Insert result of external command
+function! ExternalCommandResult()                                                                                                                         
+  return system(input('Command: '))[:-2]                                                                                                                  
+endfunction                                                                                                                                               
+inoremap <C-R>! <C-R>=ExternalCommandResult()<cr>                                                                                                                    
+
+" Another way to do <esc> Press ji
+inoremap ji <Esc>
