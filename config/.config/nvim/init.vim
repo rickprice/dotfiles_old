@@ -27,6 +27,12 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
+"UtilSnips engine
+Plug 'SirVer/ultisnips'
+
+" UtilSnips snippets provider
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 
@@ -263,3 +269,14 @@ inoremap <C-R>! <C-R>=ExternalCommandResult()<cr>
 
 " Another way to do <esc> Press ji
 inoremap ji <Esc>
+
+" UtilSnips Settings
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
