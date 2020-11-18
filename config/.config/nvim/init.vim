@@ -280,3 +280,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Undo settings
+set undofile " Maintain undo history between sessions
+set undodir=~/.cache/nvim/undo " Set persistent undo directory
