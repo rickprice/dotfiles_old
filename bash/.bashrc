@@ -116,12 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Personal bin path
-export PATH=~/bin:$PATH
-
-# AWS Credentials
-eval $(get-aws-profile.sh)
-
 # Bash History stuff
 # Consistent and forever bash history
 HISTSIZE=100000
@@ -155,7 +149,7 @@ source_files_in() {
 
     if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
         for file in "$dir"/*; do
-          [[ -f "$file" && -r "$file" ]] && . "$file"
+          [[ -x "$file" && -f "$file" && -r "$file" ]] && . "$file"
         done
     fi
 }

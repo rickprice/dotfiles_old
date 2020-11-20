@@ -2,7 +2,7 @@
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/fprice/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -28,9 +28,6 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # Handle colours
 autoload -U colors && colors
 
-# Personal bin path
-export PATH=~/.local/bin:$PATH
-
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -48,7 +45,7 @@ source_files_in() {
 
     if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
         for file in "$dir"/*; do
-          [[ -f "$file" && -r "$file" ]] && . "$file"
+          [[ -x "$file" && -f "$file" && -r "$file" ]] && . "$file"
         done
     fi
 }
