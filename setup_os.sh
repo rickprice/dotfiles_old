@@ -58,6 +58,16 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     yarn \
     && sudo apt-get -y clean
 
+# Things needed for oh-my-zsh
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+    build-essential \
+    curl \
+    file \
+    powerline \
+    fonts-powerline \
+    && sudo apt-get -y clean
+
 # Install Git
 sudo add-apt-repository -y ppa:git-core/ppa && sudo apt-get update && sudo apt-get install -y git git-lfs && sudo apt-get -y clean
 
