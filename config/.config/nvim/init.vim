@@ -33,6 +33,10 @@ Plug 'SirVer/ultisnips'
 " UtilSnips snippets provider
 Plug 'honza/vim-snippets'
 
+" Improved incremental search
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+
 call plug#end()
 
 
@@ -284,3 +288,28 @@ let g:UltiSnipsEditSplit="vertical"
 " Undo settings
 set undofile " Maintain undo history between sessions
 set undodir=~/.cache/nvim/undo " Set persistent undo directory
+
+" Improved incremental search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" Improved incremental search - easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
+" Incremential fuzzy search and easymotion
+" incsearch.vim x fuzzy x vim-easymotion
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
