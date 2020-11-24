@@ -33,6 +33,8 @@ Plug 'SirVer/ultisnips'
 " UtilSnips snippets provider
 Plug 'honza/vim-snippets'
 
+Plug 'chrisbra/csv.vim'
+
 " Improved incremental search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
@@ -105,6 +107,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <leader>dia :CocDiagnostics<cr>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
