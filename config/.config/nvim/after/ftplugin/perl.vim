@@ -1,1 +1,1 @@
-autocmd BufWritePost * silent! !tidyall %:p &
+autocmd BufWritePost * silent! !tidyall %:p
