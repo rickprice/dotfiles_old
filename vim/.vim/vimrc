@@ -45,6 +45,8 @@ Plug 'SirVer/ultisnips'
 " UtilSnips snippets provider
 Plug 'honza/vim-snippets'
 
+Plug 'chrisbra/csv.vim'
+
 " Improved incremental search
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
