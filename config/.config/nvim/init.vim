@@ -39,6 +39,9 @@ Plug 'chrisbra/csv.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
+" Vim Sensible
+Plug 'tpope/vim-sensible'
+
 call plug#end()
 
 
