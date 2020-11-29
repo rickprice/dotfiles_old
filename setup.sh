@@ -5,7 +5,7 @@
 mkdir -p ~/.cache/nvim/undo
 stow --dotfiles zshrc
 stow --dotfiles bash
-#stow --dotfiles vim
+stow --dotfiles vim
 stow --dotfiles local
 stow --dotfiles config
 
@@ -44,6 +44,3 @@ vim +PlugInstall +qall
 
 # Prepare a vimrc file in ~/.config/nvim folder
 ln -sf ~/.config/nvim/init.vim ~/.vimrc
-
-# Link the whole ~/.config/nvim folder as ~/.vim foler
-ln -sf ./.config/nvim ~/.vim
