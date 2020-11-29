@@ -1,0 +1,210 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Set leader key
+let mapleader = " "
+
+" Download and install vim-plug (cross platform).
+if empty(glob(
+                \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
+  execute '!curl -fLo ' .
+      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+          \ '/autoload/plug.vim --create-dirs ' .
+              \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+                autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+                endif
+
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-plug'
+Plug 'psf/black', { 'for' : 'python' }
+Plug 'pedrohdz/vim-yaml-folds', { 'for' : 'yaml' }
+Plug 'w0rp/ale'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc-git'
+Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
+Plug 'tpope/vim-unimpaired'
+Plug 'mileszs/ack.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
+Plug 'sjl/gundo.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+
+"UtilSnips engine
+Plug 'SirVer/ultisnips'
+
+" UtilSnips snippets provider
+Plug 'honza/vim-snippets'
+
+Plug 'chrisbra/csv.vim'
+
+" Improved incremental search
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+
+" Vim Sensible
+Plug 'tpope/vim-sensible'
+
+call plug#end()
+
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Ale settings
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+" let g:ale_sign_error = '●'
+" let g:ale_sign_warning = '.'
+let g:ale_lint_on_text_changed = 'never'
+
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
+" Handle indenting things
+set expandtab       "Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
+
+set autoindent      "Keep indentation from previous line
+set smartindent     "Automatically inserts indentation in some cases
+set cindent         "Like smartindent, but stricter and more customisable
+
+if has ("autocmd")
+    " File type detection. Indent based on filetype. Recommended.
+    filetype plugin indent on
+endif
+
+" Useful settings
+syntax on " Turn on syntax highlighing
+
+" -- Display
+set title                 " Update the title of your window or your terminal
+" set number                " Display line numbers
+" set ruler                 " Display cursor position
+" set wrap                  " Wrap lines when they are too long
+
+set scrolloff=3           " Display at least 3 lines around you cursor
+                          " (for scrolling)
+
+" set guioptions=T          " Enable the toolbar
+
+" -- Search
+set ignorecase            " Ignore case when searching
+set smartcase             " If there is an uppercase in your search term
+                          " search case sensitive again
+set incsearch             " Highlight search results when typing
+set hlsearch              " Highlight search results
+
+" -- Beep
+set visualbell            " Prevent Vim from beeping
+set noerrorbells          " Prevent Vim from beeping
+
+" Backspace behaves as expected
+set backspace=indent,eol,start
+
+" Hide buffer (file) instead of abandoning when switching
+" to another buffer
+set hidden
+
+" Folding settings
+set foldlevelstart=20
+autocmd BufWinEnter * silent! :%foldopen!
+let g:indentLine_char = '⦙'
+
+" CtrlP setup
+" nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" ZFZ Setup
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
+" Setup backup, swap, etc directories
+set backupdir=.backup/,~/.vim/backup/,/tmp//
+set directory=.swp/,~/.vim/swp/,/tmp//
+set undodir=.undo/,~/.vim/undo/,/tmp//
+set undofile
+
+" CTags setup
+set tags=tags; " Look for tags file recursively in parent directories
+" Regenerate tags when saving certain types of files
+autocmd BufWritePost *.py,*.pm,*.pl,*.json,*.yml silent! !ctags -R &
+
+" toggle show whitespace
+noremap <F3> :set list!<CR>
+
+" :w!! to save with sudo
+ca w!! w !sudo tee >/dev/null "%"
+
+" Insert current time in insert mode
+iabbrev <silent> dst <C-R>=strftime("%Y-%m-%d")<cr>
+iabbrev <silent> dstm <C-R>=strftime("%Y-%m-%d, %H:%M:%S ")<cr>
+
+" Insert current filename
+iabbrev <silent> crr <C-R>=expand('%:t:r')<cr>
+
+" Insert result of external command
+function! ExternalCommandResult()                                                                                                                         
+  return system(input('Command: '))[:-2]                                                                                                                  
+endfunction                                                                                                                                               
+inoremap <C-R>! <C-R>=ExternalCommandResult()<cr>                                                                                                                    
+
+" Another way to do <esc> Press ji
+inoremap ji <Esc>
+
+" UtilSnips Settings
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Improved incremental search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" Improved incremental search - easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
+" Incremential fuzzy search and easymotion
+" incsearch.vim x fuzzy x vim-easymotion
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
