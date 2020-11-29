@@ -1,8 +1,27 @@
 #! /bin/sh
 
+### Setup dotfiles directories ###
+
+mkdir -p ~/.cache/nvim/undo
+stow --dotfiles zshrc
+stow --dotfiles bash
+#stow --dotfiles vim
+stow --dotfiles dot-local
+stow --dotfiles dot-config
+
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+
 # Download plug.vim for NeoVim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+### Configure Vim plugins ###
+
+vim +PlugInstall +qall
+#vim +PlugClean +qall
+#vim +PlugUpdate
 
 ### Configure Vim to use Neovim configuration ###
 # nvim conf dir: ~/.config/nvim
@@ -14,26 +33,6 @@ ln -sf ./init.vim ~/.config/nvim/vimrc
 
 # Link the whole ~/.config/nvim folder as ~/.vim foler
 ln -sf ./.config/nvim ~/.vim
-
-### Setup dotfiles directories ###
-
-# Setup the directories
-mkdir -p ~/.cache/nvim/undo
-stow --dotfiles zsh
-stow --dotfiles bash
-#stow --dotfiles vim
-stow --dotfiles local
-stow --dotfiles config
-
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-
-### Configure Vim plugins ###
-
-vim +PlugInstall +qall
-#vim +PlugClean +qall
-#vim +PlugUpdate
 
 ### Configure ZSH things ###
 
