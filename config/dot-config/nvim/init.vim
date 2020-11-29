@@ -1,6 +1,18 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let g:is_nvim = has('nvim')
+let g:is_vim8 = v:version >= 800 ? 1 : 0
+
+" Reuse nvim's runtimepath and packpath in vim
+if !g:is_nvim && g:is_vim8
+  set runtimepath-=~/.vim
+    \ runtimepath^=~/.local/share/nvim/site runtimepath^=~/.vim 
+    \ runtimepath-=~/.vim/after
+    \ runtimepath+=~/.local/share/nvim/site/after runtimepath+=~/.vim/after
+  let &packpath = &runtimepath
+endif
+
 :colorscheme delek
 
 " Set leader key
