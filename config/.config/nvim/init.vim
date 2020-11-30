@@ -361,3 +361,7 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" Move current line
+nnoremap <C-j> :m+<cr>
+nnoremap <C-k> :m-2<cr>
