@@ -262,7 +262,9 @@ set title                 " Update the title of your window or your terminal
 " set number                " Display line numbers
 " set ruler                 " Display cursor position
 " set wrap                  " Wrap lines when they are too long
-:set number relativenumber
+" :set number relativenumber
+
+nnoremap <F2> :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<cr>
 
 " set guioptions=T          " Enable the toolbar
 
