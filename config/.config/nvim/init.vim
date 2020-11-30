@@ -14,6 +14,15 @@ if empty(glob(
               \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
                 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
                 endif
+else
+if empty(glob(
+                \ '$HOME/' . (has('win32') ? 'AppData/Local/nvim/site' : '.local/share/nvim/site') . '/autoload/plug.vim'))
+  execute '!curl -fLo ' .
+      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.local/share/nvim/site') . 
+          \ '/autoload/plug.vim --create-dirs ' .
+              \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+                autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+                endif
 endif
 
 :colorscheme delek
