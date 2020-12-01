@@ -25,8 +25,6 @@ if empty(glob(
                 endif
 endif
 
-:colorscheme delek
-
 " Set leader key
 let mapleader = "\<Space>" 
 
@@ -49,6 +47,9 @@ Plug 'junegunn/vim-plug'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -58,7 +59,6 @@ Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
-Plug 'Yggdroot/indentLine'
 Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'Plug 'justinmk/vim-sneak'
 Plug 'vimwiki/vimwiki'
@@ -79,8 +79,13 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 " Vim Sensible
 Plug 'tpope/vim-sensible'
 
+" Colour Schemes
+Plug 'humanoid-colors/vim-humanoid-colorscheme'
+
 call plug#end()
 
+":colorscheme delek
+:colorscheme humanoid
 
 " ZFZ Setup
 nnoremap <silent> <C-p> :Files<CR>
