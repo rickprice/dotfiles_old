@@ -93,6 +93,7 @@ rustup override set stable
 rustup update stable
 
 # Install Alacritty
+rm -rf /tmp/alacritty
 git clone https://github.com/alacritty/alacritty.git /tmp/alacritty
 cd /tmp/alacritty
 
