@@ -4,18 +4,18 @@ font:
   size: 12
   # The normal (roman) font face to use.
   normal:
-    family: Iosevka Regular
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Iosevka Regular
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Iosevka Regular
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Italic
