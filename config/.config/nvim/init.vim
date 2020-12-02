@@ -81,11 +81,25 @@ Plug 'tpope/vim-sensible'
 
 " Colour Schemes
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
+Plug 'rakr/vim-one'
+Plug 'challenger-deep-theme/vim'
 
 call plug#end()
 
-":colorscheme delek
+" Color Scheme setup
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
+
+":colorscheme one
+":set background=dark
+
+":colorscheme challenger_deep
+":set background=dark
+
 :colorscheme humanoid
+:set background=dark
+":set background=light
 
 " ZFZ Setup
 nnoremap <silent> <C-p> :Files<CR>
