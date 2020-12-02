@@ -80,9 +80,12 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'tpope/vim-sensible'
 
 " Colour Schemes
-Plug 'xolox/vim-colorscheme-switcher'
-Plug 'xolox/vim-misc'
+" - Color support plugins
+"Plug 'xolox/vim-colorscheme-switcher'
+"Plug 'xolox/vim-misc'
+Plug 'vim-scripts/colorsupport.vim'
 
+" - Color plugins
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
 Plug 'rakr/vim-one'
 Plug 'challenger-deep-theme/vim'
