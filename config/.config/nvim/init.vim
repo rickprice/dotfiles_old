@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 let g:is_nvim = has('nvim')
+let g:is_nvim5 = has('nvim-0.5.0')
 let g:is_vim8 = v:version >= 800 ? 1 : 0
 
 if !g:is_nvim && g:is_vim8
@@ -34,7 +35,7 @@ else
 call plug#begin(stdpath('data') . '/plugged')
 endif
 
-if !g:is_nvim && g:is_vim8
+if !g:is_nvim5 && g:is_vim8
 Plug 'psf/black', { 'for' : 'python' }
 Plug 'w0rp/ale'
 else
