@@ -83,6 +83,12 @@ sudo update-alternatives --install /usr/bin/view view /usr/bin/nvim 60
 # This is needed for coc-python
 sudo pip3 install jedi
 
+# Iosevka Font which I like
+rm -rf /tmp/iosevka
+mkdir -p /tmp/iosevka
+wget --directory-prefix=/tmp/iosevka http://phd-sid.ethz.ch/debian/fonts-iosevka/fonts-iosevka_4.0.0%2Bds-1_all.deb
+sudo dpkg -i /tmp/iosevka/fonts-iosevka_4.0.0+ds-1_all.deb
+
 # Install dependencies needed for Alacritty Terminal
 sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
 
