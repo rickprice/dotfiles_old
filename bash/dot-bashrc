@@ -156,3 +156,4 @@ source_files_in() {
 
 source_files_in ~/.shell_snippets
 
+source "$HOME/.cargo/env"
