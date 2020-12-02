@@ -82,3 +82,23 @@ sudo update-alternatives --install /usr/bin/view view /usr/bin/nvim 60
 
 # This is needed for coc-python
 sudo pip3 install jedi
+
+# Install dependencies needed for Alacritty Terminal
+sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+rustup override set stable
+rustup update stable
+
+# Install Alacritty
+git clone https://github.com/alacritty/alacritty.git /tmp/alacritty
+cd /tmp/alacritty
+
+cargo build --release
+
+udo cp target/release/alacritty /usr/local/bin
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+sudo update-desktop-database
