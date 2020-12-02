@@ -80,6 +80,9 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'tpope/vim-sensible'
 
 " Colour Schemes
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
+
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
 Plug 'rakr/vim-one'
 Plug 'challenger-deep-theme/vim'
@@ -97,9 +100,12 @@ endif
 ":colorscheme challenger_deep
 ":set background=dark
 
-:colorscheme humanoid
-:set background=dark
+":colorscheme humanoid
+":set background=dark
 ":set background=light
+
+:colorscheme industry
+:set background=dark
 
 " ZFZ Setup
 nnoremap <silent> <C-p> :Files<CR>
