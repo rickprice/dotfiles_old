@@ -11,7 +11,7 @@ if !g:is_nvim && g:is_vim8
 if empty(glob(
                 \ '$HOME/' . (has('win32') ? 'vimfiles' : '.vim') . '/autoload/plug.vim'))
   execute '!curl -fLo ' .
-      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') . 
+      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.vim') .
           \ '/autoload/plug.vim --create-dirs ' .
               \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
                 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -20,7 +20,7 @@ else
 if empty(glob(
                 \ '$HOME/' . (has('win32') ? 'AppData/Local/nvim/site' : '.local/share/nvim/site') . '/autoload/plug.vim'))
   execute '!curl -fLo ' .
-      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.local/share/nvim/site') . 
+      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.local/share/nvim/site') .
           \ '/autoload/plug.vim --create-dirs ' .
               \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
                 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -28,7 +28,7 @@ if empty(glob(
 endif
 
 " Set leader key
-let mapleader = "\<Space>" 
+let mapleader = "\<Space>"
 
 if !g:is_nvim && g:is_vim8
 call plug#begin('~/.vim/plugged')
@@ -346,10 +346,10 @@ iabbrev <silent> dstm <C-R>=strftime("%Y-%m-%d, %H:%M:%S ")<cr>
 iabbrev <silent> crr <C-R>=expand('%:t:r')<cr>
 
 " Insert result of external command
-function! ExternalCommandResult()                                                                                                                         
-  return system(input('Command: '))[:-2]                                                                                                                  
-endfunction                                                                                                                                               
-inoremap <C-R>! <C-R>=ExternalCommandResult()<cr>                                                                                                                    
+function! ExternalCommandResult()
+  return system(input('Command: '))[:-2]
+endfunction
+inoremap <C-R>! <C-R>=ExternalCommandResult()<cr>
 
 " Another way to do <esc> Press ji
 inoremap ji <Esc>
@@ -397,3 +397,5 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 " Move current line
 nnoremap <C-j> :m+<cr>
 nnoremap <C-k> :m-2<cr>
+
+noremap <leader>dtw :%s/\s\+$//e<cr>
