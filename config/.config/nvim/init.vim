@@ -399,3 +399,22 @@ nnoremap <C-j> :m+<cr>
 nnoremap <C-k> :m-2<cr>
 
 noremap <leader>dtw :%s/\s\+$//e<cr>
+
+" FileType mappings
+augroup filetype_yaml
+  autocmd!
+
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+augroup filetype_json
+  autocmd!
+
+  autocmd FileType json setlocal foldmethod=syntax
+augroup END
+
+augroup filetype_perl
+  autocmd!
+
+  autocmd BufWritePost perl silent! !tidyall %:p
+augroup END
