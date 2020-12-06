@@ -111,6 +111,7 @@ endif
 ":set background=dark
 ":set background=light
 
+" gVim would have 'gui_running'
 if has("gui_running")
     :colorscheme humanoid
     :set background=light
