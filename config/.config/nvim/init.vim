@@ -87,7 +87,7 @@ Plug 'tpope/vim-sensible'
 " - Color support plugins
 "Plug 'xolox/vim-colorscheme-switcher'
 "Plug 'xolox/vim-misc'
-Plug 'vim-scripts/colorsupport.vim'
+"Plug 'vim-scripts/colorsupport.vim'
 
 " - Color plugins
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
@@ -112,6 +112,7 @@ endif
 ":set background=light
 
 :colorscheme industry
+:colorscheme challenger_deep
 :set background=dark
 
 " ZFZ Setup
