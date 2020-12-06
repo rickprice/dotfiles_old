@@ -111,9 +111,13 @@ endif
 ":set background=dark
 ":set background=light
 
-:colorscheme industry
-:colorscheme challenger_deep
-:set background=dark
+if has("gui_running")
+    :colorscheme humanoid
+    :set background=light
+else
+    :colorscheme challenger_deep
+    :set background=dark
+endif
 
 " ZFZ Setup
 nnoremap <silent> <C-p> :Files<CR>
