@@ -52,7 +52,8 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
 # Perl setup
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
         sudo apt-get --assume-yes install \
-    python3 libcode-tidyall-perl \
+    libcode-tidyall-perl \
+    cpanminus \
     && sudo apt-get -y clean
 
 # Things needed for coc-nvim

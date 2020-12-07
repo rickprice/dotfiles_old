@@ -1,0 +1,5 @@
+# set PATH so it includes the Go bin directory
+GO_BIN_DIR="$HOME/go/bin"
+if [ -d "$GO_BIN_DIR" ] ; then
+    export PATH="$GO_BIN_DIR:$PATH"
+fi

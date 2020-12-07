@@ -1,0 +1,5 @@
+# set PATH so it includes  the Perl bin directory
+PERL_BIN_DIR="$HOME/perl5/bin"
+if [ -d "$PERL_BIN_DIR" ] ; then
+    export PATH="$PERL_BIN_DIR:$PATH"
+fi
