@@ -49,6 +49,11 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     python3-venv \
     && sudo apt-get -y clean
 
+# Perl setup
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+    python3 libcode-tidyall-perl \
+    && sudo apt-get -y clean
 
 # Things needed for coc-nvim
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
