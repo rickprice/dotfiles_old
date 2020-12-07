@@ -53,6 +53,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
         sudo apt-get --assume-yes install \
     libcode-tidyall-perl \
+    libdbd-pg-perl \
     cpanminus \
     && sudo apt-get -y clean
 
