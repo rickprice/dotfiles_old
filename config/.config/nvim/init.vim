@@ -407,6 +407,11 @@ nnoremap <C-k> :m-2<cr>
 
 noremap <leader>dtw :%s/\s\+$//e<cr>
 
+" Spell checking, set to en_ca and turn off by default
+set spell spelllang=en_ca
+set nospell
+nnoremap <leader>s :set spell!<cr>
+
 " FileType mappings
 augroup filetype_yaml
   autocmd!
