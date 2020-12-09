@@ -1,3 +1,8 @@
+window:
+  startup_mode: Maximized
+selection:
+  save_to_clipboard: true
+
 # Font configuration (changes require restart)
 font:
   # The size to use.
