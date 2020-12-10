@@ -53,7 +53,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-commentary'
-Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-entire' | Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-entire' | Plug 'glts/vim-textobj-comment' | Plug 'kana/vim-textobj-indent' | Plug 'jceb/vim-textobj-uri'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
