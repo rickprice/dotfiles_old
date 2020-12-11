@@ -82,7 +82,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
 "UtilSnips engine
-if g:has_python || g:is_nvim
+if g:has_python || g:is_nvim5
     Plug 'SirVer/ultisnips'
 endif
 
@@ -145,11 +145,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 " CoC Setup
 if g:use_coc
-    if g:is_nvim
-        let g:coc_global_extensions = ['coc-python', 'coc-yaml', 'coc-json', 'coc-git', 'coc-docker', 'coc-actions', 'coc-markdownlint', 'coc-perl', 'coc-sh', 'coc-fzf-preview', 'coc-spell-checker' ]
-    else
-        let g:coc_global_extensions = ['coc-python', 'coc-yaml', 'coc-json', 'coc-git', 'coc-docker', 'coc-markdownlint', 'coc-perl', 'coc-sh', 'coc-fzf-preview', 'coc-spell-checker' ]
-    endif
+    let g:coc_global_extensions = ['coc-pyright', 'coc-yaml', 'coc-json', 'coc-git', 'coc-docker', 'coc-markdownlint', 'coc-perl', 'coc-sh', 'coc-fzf-preview', 'coc-spell-checker' ]
 
     " TextEdit might fail if hidden is not set.
     set hidden
