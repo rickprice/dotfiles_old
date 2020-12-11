@@ -64,6 +64,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
+" Very powerful text objects plugin
+Plug 'wellle/targets.vim'
 " Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
