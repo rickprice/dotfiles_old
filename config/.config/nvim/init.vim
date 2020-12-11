@@ -3,7 +3,7 @@ filetype off                  " required
 
 let g:is_nvim = has('nvim')
 let g:is_nvim5 = has('nvim-0.5.0')
-let g:is_vim8 = v:version >= 800 ? 1 : 0
+let g:is_vim8 = v:version >= 800 && !g:is_nvim ? 1 : 0
 let g:has_python = has('python') || has('python3')
 
 if !g:is_nvim && g:is_vim8
