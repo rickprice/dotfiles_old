@@ -109,6 +109,7 @@ Plug 'tpope/vim-sensible'
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
 Plug 'rakr/vim-one'
 Plug 'challenger-deep-theme/vim'
+Plug 'romainl/vim-dichromatic'
 
 call plug#end()
 
@@ -132,7 +133,8 @@ if has("gui_running")
     :colorscheme humanoid
     :set background=light
 else
-    :colorscheme challenger_deep
+"    :colorscheme challenger_deep
+    :colorscheme dichromatic
     :set background=dark
 endif
 
