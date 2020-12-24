@@ -26,6 +26,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     locales \
     fd-find \
     fzf \
+    vifm \
     && sudo apt-get -y clean
 
 # Interesting software.
