@@ -1,5 +1,24 @@
-# set PATH so it includes the Go bin directory
-GO_BIN_DIR="$HOME/go/bin"
-if [ -d "$GO_BIN_DIR" ] ; then
-    export PATH="$GO_BIN_DIR:$PATH"
+# Ensure that the Go bin directory is on PATH
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# --- This is where the AS GoPath will be located ---
+AS_GO_PATH=~/.cache/GoPath
+AS_FULL_PATH=$AS_GO_PATH/src/github.com/ActiveState
+
+# Ensure the directory exists
+mkdir -p $AS_FULL_PATH
+
+# Add a symlink for TheHomeRepot to the Go HOME
+if [ ! -L $AS_FULL_PATH/TheHomeRepot ]; then
+    ln -f -s ~/TheHomeRepot $AS_FULL_PATH
+fi
+
+# Add a symlink for langtools to the Go HOME
+if [ ! -L $AS_FULL_PATH/langtools ]; then
+    ln -f -s ~/langtools $AS_FULL_PATH
+fi
+
+# Only set the Go path if it isn't already set, or we keep getting repeats in it
+if [[ -z "${GOPATH}" ]]; then
+    export GOPATH=$(go env GOPATH):$AS_GO_PATH
 fi
