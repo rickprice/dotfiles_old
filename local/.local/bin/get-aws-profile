@@ -18,17 +18,17 @@ config = ConfigParser()
 config.read(credentials_file)
 
 aws_access_key_id = config.get("default", "aws_access_key_id")
-print(f'AWS_ACCESS_KEY_ID="{aws_access_key_id}"')
+print(f'export AWS_ACCESS_KEY_ID="{aws_access_key_id}"')
 aws_secret_access_key = config.get("default", "aws_secret_access_key")
-print(f'AWS_SECRET_ACCESS_KEY="{aws_secret_access_key}"')
+print(f'export AWS_SECRET_ACCESS_KEY="{aws_secret_access_key}"')
 
 if config.has_option("default", "aws_session_token"):
     aws_session_token = config.get("default", "aws_session_token")
-    print(f'AWS_SESSION_TOKEN="{aws_session_token}"')
+    print(f'export AWS_SESSION_TOKEN="{aws_session_token}"')
 
 # Find config items
 config = ConfigParser()
 config.read(config_file)
 
 aws_region = config.get("default", "region")
-print(f'REGION="{aws_region}"')
+print(f'export REGION="{aws_region}"')
