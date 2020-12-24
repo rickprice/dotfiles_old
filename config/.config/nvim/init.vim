@@ -99,6 +99,18 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 " Vim Sensible
 Plug 'tpope/vim-sensible'
 
+" Fern
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'LumaKernel/fern-mapping-fzf.vim'
+Plug 'lambdalisue/fern-mapping-git.vim'
+Plug 'lambdalisue/fern-git-status.vim'
+
+" Neovim Bugfix
+if is_nvim
+    Plug 'antoinemadec/FixCursorHold.nvim'
+endif
+
 " Colour Schemes
 " - Color support plugins
 "Plug 'xolox/vim-colorscheme-switcher'
@@ -449,4 +461,14 @@ augroup filetype_perl
   autocmd!
 
   autocmd BufWritePost perl silent! !tidyall %:p
+augroup END
+
+function! s:init_fern() abort
+  " Use 'select' instead of 'edit' for default 'open' action
+  nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
 augroup END
