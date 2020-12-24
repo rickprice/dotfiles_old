@@ -31,4 +31,4 @@ config = ConfigParser()
 config.read(config_file)
 
 aws_region = config.get("default", "region")
-print(f'export REGION="{aws_region}"')
+print(f'export AWS_DEFAULT_REGION="{aws_region}"')
