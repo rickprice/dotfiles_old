@@ -53,23 +53,29 @@ Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-plug'
 Plug 'vim-airline/vim-airline'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-indent'
 Plug 'jceb/vim-textobj-uri'
-Plug 'adelarsq/vim-matchit'
 Plug 'thinca/vim-textobj-between'
+
+Plug 'adelarsq/vim-matchit'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
 Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 " Very powerful text objects plugin
 Plug 'wellle/targets.vim'
@@ -119,8 +125,8 @@ endif
 
 " - Color plugins
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
-Plug 'rakr/vim-one'
-Plug 'challenger-deep-theme/vim'
+"Plug 'rakr/vim-one'
+"Plug 'challenger-deep-theme/vim'
 Plug 'romainl/vim-dichromatic'
 
 call plug#end()
@@ -170,7 +176,8 @@ if g:use_coc
     set nowritebackup
 
     " Give more space for displaying messages.
-    set cmdheight=2
+"    set cmdheight=2
+    set cmdheight=1
 
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
