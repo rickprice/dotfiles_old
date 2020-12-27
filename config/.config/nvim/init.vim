@@ -91,10 +91,10 @@ Plug 'mattn/calendar-vim'
 "UtilSnips engine
 if g:has_python || g:is_nvim5
     " Track the engine.
-    Plugin 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
 
     " Snippets are separated from the engine. Add this if you want them:
-    Plugin 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
 
     " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
     " - https://github.com/Valloric/YouCompleteMe
