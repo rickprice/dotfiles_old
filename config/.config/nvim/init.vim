@@ -5,7 +5,7 @@ let g:is_nvim = has('nvim')
 let g:is_nvim5 = has('nvim-0.5.0')
 let g:is_vim = !g:is_nvim
 let g:is_vim8 = v:version >= 800 && g:is_vim ? 1 : 0
-let g:has_python = has('python') || has('python3')
+let g:has_python3 = has('python3')
 let g:is_windows = has('win32')
 let g:use_coc = g:is_nvim5 || g:is_vim8
 
@@ -89,7 +89,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
 "UtilSnips engine
-if g:has_python || g:is_nvim5
+if g:has_python3 || g:is_nvim5
     " Track the engine.
     Plug 'SirVer/ultisnips'
 
