@@ -79,7 +79,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'masukomi/vim-markdown-folding', { 'for' : 'markdown' }
 " Very powerful text objects plugin
 Plug 'wellle/targets.vim'
-" Plug 'sjl/gundo.vim'
+
 Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
@@ -105,6 +105,11 @@ if g:has_python3 || g:is_nvim5
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+endif
+
+if g:has_python3
+    "Mundo requires python >=2.4, but we only use Python3
+    Plug 'simnalamburt/vim-mundo'
 endif
 
 Plug 'chrisbra/csv.vim'
