@@ -421,6 +421,7 @@ inoremap ji <Esc>
 " Undo settings
 set undofile " Maintain undo history between sessions
 set undodir=~/.cache/nvim/undo " Set persistent undo directory
+set undolevels=10000
 
 " Improved incremental search
 map /  <Plug>(incsearch-forward)
