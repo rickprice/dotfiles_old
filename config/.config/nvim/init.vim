@@ -96,6 +96,9 @@ if g:has_python3 || g:is_nvim5
     " Snippets are separated from the engine. Add this if you want them:
     Plug 'honza/vim-snippets'
 
+    "Snippets for use by ActiveState BE
+    Plug 'rickprice/be-ultisnips-snippets'
+
     " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
     " - https://github.com/Valloric/YouCompleteMe
     " - https://github.com/nvim-lua/completion-nvim
