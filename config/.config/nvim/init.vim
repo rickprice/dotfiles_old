@@ -356,8 +356,6 @@ syntax on " Turn on syntax highlighing
 set title                 " Update the title of your window or your terminal
 " set number                " Display line numbers
 " set ruler                 " Display cursor position
-" set wrap                  " Wrap lines when they are too long
-" :set number relativenumber
 
 " Toggle line number display
 nnoremap <F2> :let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]<cr>
@@ -395,6 +393,35 @@ set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
 set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
 set cindent         "Like smartindent, but stricter and more customisable
+
+" Better word wrappping
+let s:wrapenabled = 0
+function! ToggleWrap()
+  set wrap nolist
+  if s:wrapenabled
+    set nolinebreak
+    unmap j
+    unmap k
+    unmap 0
+    unmap ^
+    unmap $
+    let s:wrapenabled = 0
+  else
+    set linebreak
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+    let s:wrapenabled = 1
+  endif
+endfunction
+map <leader>w :call ToggleWrap()<CR>
 
 " toggle show whitespace
 noremap <F3> :set list!<CR>
