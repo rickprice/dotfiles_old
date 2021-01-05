@@ -8,3 +8,4 @@ vim/.vim/autoload/
 vim/.vim/plugged/
 vim/.vim/.netrwhist
 vim/.vim/swp/
+local/.local/bin/bazel
