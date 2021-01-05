@@ -27,3 +27,6 @@ stow --dotfiles shell_snippets
 
 # Prepare a vimrc file in ~/.config/nvim folder
 ln -sf ~/.config/nvim/init.vim ~/.vimrc
+
+# Reconfigure CapsLock to be Ctrl
+sudo vi -c '%s/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"' /etc/default/keyboard -c 'wq'
