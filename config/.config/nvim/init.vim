@@ -389,6 +389,7 @@ let g:indentLine_char = '⦙'
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
 set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
 set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
+set tabstop=8       " Tabstops need to be 8 to keep things sane
 
 set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
@@ -491,7 +492,16 @@ nnoremap <leader>s :set spell!<cr>
 augroup filetype_yaml
   autocmd!
 
-  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  " Setup shifts and tabstops etc for YAML files
+  autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+
+" To get this effect for a singel file you can add this to the top of a file:
+" # vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab:
+"
+" To change files that have a mix of tabs and spaces to all spaces
+" In VIM's command mode enter the following
+" :set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+" :retab
 augroup END
 
 augroup filetype_json
