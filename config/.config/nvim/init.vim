@@ -88,7 +88,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
-"UtilSnips engine
+"UltiSnips engine
 if g:has_python3 || g:is_nvim5
     " Track the engine.
     Plug 'SirVer/ultisnips'
