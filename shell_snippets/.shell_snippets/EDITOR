@@ -1,0 +1,4 @@
+# Only set EDITOR if it's not already set
+if [[ -z "${EDITOR}" ]]; then
+    export EDITOR=nvim
+fi
