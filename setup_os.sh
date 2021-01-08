@@ -76,6 +76,14 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     fonts-powerline \
     && sudo apt-get -y clean
 
+# Tmux stuff
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+    tmux \
+    && sudo apt-get -y clean
+
+sudo gem install tmuxinator
+
 # Install Git
 sudo add-apt-repository -y ppa:git-core/ppa && sudo apt-get update && sudo apt-get install -y git git-lfs && sudo apt-get -y clean
 
