@@ -71,7 +71,13 @@ Plug 'thinca/vim-textobj-between'
 
 Plug 'adelarsq/vim-matchit'
 Plug 'mileszs/ack.vim'
+
+
+" Motion plugins
 Plug 'easymotion/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
+" Plug 'unblevable/quick-scope'
+
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -84,7 +90,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'pedrohdz/vim-yaml-folds'
-" Plug 'Plug 'justinmk/vim-sneak'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
