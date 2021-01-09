@@ -76,7 +76,7 @@ Plug 'mileszs/ack.vim'
 " Motion plugins
 Plug 'easymotion/vim-easymotion'
 " Plug 'justinmk/vim-sneak'
-" Plug 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope'
 
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
