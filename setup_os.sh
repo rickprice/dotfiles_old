@@ -27,6 +27,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     fd-find \
     fzf \
     vifm \
+    dos2unix \
     && sudo apt-get -y clean
 
 # Interesting software.
