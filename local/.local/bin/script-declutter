@@ -1,4 +1,4 @@
-#!/usr/bin/perl -wpi
+#!/usr/bin/perl -wp
 
 # clean up control characters and other non-text detritus that shows up 
 # when you run the "script" command.
