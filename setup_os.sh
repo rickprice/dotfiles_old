@@ -88,6 +88,8 @@ sudo gem install tmuxinator
 
 # Install Git
 sudo add-apt-repository -y ppa:git-core/ppa && sudo apt-get update && sudo apt-get install -y git git-lfs && sudo apt-get -y clean
+# Set default pull mode for git
+git config --global pull.rebase false
 
 # Neovim module setup
 sudo yarn global add neovim
