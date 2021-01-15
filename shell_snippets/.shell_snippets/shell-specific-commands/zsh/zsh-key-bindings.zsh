@@ -1,6 +1,3 @@
-# Only run for ZSH
-if [[ -n "$ZSH_VERSION" ]]; then
-
 # Key bindings
 # ------------
 if [[ $- == *i* ]]; then
@@ -86,7 +83,4 @@ fzf-history-widget() {
 zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
-fi
-
-# if statement at top of file
 fi

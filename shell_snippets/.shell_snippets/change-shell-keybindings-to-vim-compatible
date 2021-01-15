@@ -1,7 +1,0 @@
-if [ "$PROFILE_SHELL" = "bash" ]; then
-    set -o vi
-fi
-
-if [ "$PROFILE_SHELL" = "zsh" ]; then
-    bindkey -v
-fi

@@ -15,3 +15,16 @@ else
   PROFILE_SHELL=sh
 fi
 export PROFILE_SHELL
+
+# Process our shell snippets to configure our environment
+source_files_in_shell_specific_directory() {
+    local dir=$1/$PROFILE_SHELL
+
+    if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
+        for file in "$dir"/*; do
+          [[ -x "$file" && -f "$file" && -r "$file" ]] && . "$file"
+        done
+    fi
+}
+
+source_files_in_shell_specific_directory ./shell-specific-commands
