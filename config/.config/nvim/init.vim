@@ -159,10 +159,12 @@ if g:is_advanced_host && g:is_nvim
     \  'defaultProject': 'WorkVimTodos',
     \  'useMarkdownSyntax': v:true,
     \}
+
     let clap_provider_todoist = {
     \ 'source': {-> Todoist__listProjects()},
     \ 'sink': 'Todoist',
     \}
+    let g:clap_theme = 'material_design_dark'
 endif
 
 " Neovim Bugfix

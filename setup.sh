@@ -18,8 +18,8 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 ### Configure ZSH things ###
 
 # ZSH Plugins with Antibody
-antibody bundle < config/.config/antibody/zsh_plugins.txt > shell_snippets/.shell_snippets/zsh_plugins.sh
-chmod a+x shell_snippets/.shell_snippets/zsh_plugins.sh
+antibody bundle < config/.config/antibody/zsh_plugins.txt > shell_snippets/.shell_snippets/shell-specific-commands/zsh/zsh_plugins.zsh
+chmod a+x shell_snippets/.shell_snippets/shell-specific-commands/zsh/zsh_plugins.zsh
 
 ### Configure Shell snippets ###
 
