@@ -32,6 +32,13 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     pass \
     && sudo apt-get -y clean
 
+# Needed for vim-clap and vim-todoist
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+        libssl-dev \
+        build-essential \
+    && sudo apt-get -y clean
+
 # Interesting software.
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
         sudo apt-get --assume-yes install \
