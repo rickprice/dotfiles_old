@@ -143,7 +143,7 @@ Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'lambdalisue/fern-mapping-git.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 
-if g:is_advanced_host
+if g:is_advanced_host && g:is_nvim
     " Todoist and Clap
     Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
     " The bang version will try to download the prebuilt binary if cargo does not exist.
@@ -151,12 +151,12 @@ if g:is_advanced_host
 
     let g:todoist = {
     \ 'icons': {
-    \   'unchecked': '  ',
-    \   'checked':   '  ',
+    \   'unchecked': ' [ ] ',
+    \   'checked':   ' [X] ',
     \   'loading':   '  ',
     \   'error':     '  ',
     \ },
-    \  'defaultProject': 'Inbox',
+    \  'defaultProject': 'WorkVimTodos',
     \  'useMarkdownSyntax': v:true,
     \}
     let clap_provider_todoist = {
