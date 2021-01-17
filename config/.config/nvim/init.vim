@@ -1,6 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let g:advanced_hosts = ["fpersonal","fwork"]
+
+let g:is_advanced_host = 0
+if index(g:advanced_hosts, hostname()) >= 0
+    let g:is_advanced_host = 1
+endif
+
 let g:is_nvim = has('nvim')
 let g:is_nvim5 = has('nvim-0.5.0')
 let g:is_vim = !g:is_nvim
@@ -135,6 +142,28 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'lambdalisue/fern-mapping-git.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+
+if g:is_advanced_host
+    " Todoist and Clap
+    Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
+    " The bang version will try to download the prebuilt binary if cargo does not exist.
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+
+    let g:todoist = {
+    \ 'icons': {
+    \   'unchecked': '  ',
+    \   'checked':   '  ',
+    \   'loading':   '  ',
+    \   'error':     '  ',
+    \ },
+    \  'defaultProject': 'Inbox',
+    \  'useMarkdownSyntax': v:true,
+    \}
+    let clap_provider_todoist = {
+    \ 'source': {-> Todoist__listProjects()},
+    \ 'sink': 'Todoist',
+    \}
+endif
 
 " Neovim Bugfix
 if is_nvim

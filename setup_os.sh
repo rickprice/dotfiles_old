@@ -29,6 +29,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     vifm \
     dos2unix \
     colorized-logs \
+    pass \
     && sudo apt-get -y clean
 
 # Interesting software.
