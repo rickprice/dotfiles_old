@@ -146,8 +146,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 if g:is_advanced_host && g:is_nvim
     " Todoist and Clap
     Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
-    " The bang version will try to download the prebuilt binary if cargo does not exist.
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
     let g:todoist = {
     \ 'icons': {
@@ -164,6 +162,11 @@ if g:is_advanced_host && g:is_nvim
     \ 'source': {-> Todoist__listProjects()},
     \ 'sink': 'Todoist',
     \}
+endif
+
+if is_nvim
+    " The bang version will try to download the prebuilt binary if cargo does not exist.
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
     let g:clap_theme = 'material_design_dark'
 endif
 
