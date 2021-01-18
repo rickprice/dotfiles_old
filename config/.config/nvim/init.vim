@@ -521,6 +521,18 @@ nnoremap <C-k> :m-2<cr>
 " Delete trailing whitespace
 noremap <leader>dtw :%s/\s\+$//e<cr>
 
+" For tracking what is going on in Vim
+function! ToggleVerbose()
+    if !&verbose
+        call mkdir($HOME . "/.cache/vim/logs", "p", 0700)
+        set verbosefile=~/.cache/vim/logs/verbose.log
+        set verbose=15
+    else
+        set verbose=0
+        set verbosefile=
+    endif
+endfunction
+
 " Spell checking, set to en_ca and turn off by default
 set spell spelllang=en_ca
 set nospell
