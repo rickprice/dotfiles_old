@@ -1,0 +1,5 @@
+set imap_user = "`pass Mutt/gmail/rprice/imap_user`"
+set imap_pass = "`pass Mutt/gmail/rprice/imap_pass`"
+set from = "`pass Mutt/gmail/rprice/from`"
+set realname = "`pass Mutt/gmail/rprice/realname`"
+set smtp_url = "`pass Mutt/gmail/rprice/smtp_url`"
