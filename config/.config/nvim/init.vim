@@ -15,6 +15,7 @@ let g:is_vim8 = v:version >= 800 && g:is_vim ? 1 : 0
 let g:has_python3 = has('python3')
 let g:is_windows = has('win32')
 let g:use_coc = g:is_nvim5 || g:is_vim8
+let g:has_rust_cargo = executable('cargo')
 
 if g:is_vim
 " Download and install vim-plug (cross platform), but for Vim
@@ -143,7 +144,7 @@ Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'lambdalisue/fern-mapping-git.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 
-if g:is_advanced_host && g:is_nvim
+if g:is_advanced_host && g:is_nvim && g:has_rust_cargo
     " Todoist and Clap
     Plug 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 
@@ -164,11 +165,9 @@ if g:is_advanced_host && g:is_nvim
     \}
 endif
 
-if is_nvim
-    " The bang version will try to download the prebuilt binary if cargo does not exist.
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-    let g:clap_theme = 'material_design_dark'
-endif
+" The bang version will try to download the prebuilt binary if cargo does not exist.
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+let g:clap_theme = 'material_design_dark'
 
 " Neovim Bugfix
 if is_nvim
