@@ -535,6 +535,24 @@ function! ToggleVerbose()
     endif
 endfunction
 
+" Create a scroll mode from Reddit
+fun! Scroll_mode()  " {{{
+    let keymap = {
+        \ 'k': "\<C-y>", 'K': "\<C-u>",
+        \ 'j': "\<C-e>", 'J': "\<C-d>",
+        \ 'h': "\<C-B>", 'H': "\<C-B>",
+        \ 'l': "\<C-F>", 'L': "\<C-F>"}
+    while v:true
+        let char = nr2char(getchar())
+        if ! has_key(keymap, char) | break | endif
+            execute "normal " . expand(keymap[char])
+        redraw
+    endw
+    execute "normal M"
+    echo
+endfun  " }}}
+nnoremap gs :call Scroll_mode()<CR>
+
 " Spell checking, set to en_ca and turn off by default
 set spell spelllang=en_ca
 set nospell
