@@ -69,6 +69,20 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     cpanminus \
     && sudo apt-get -y clean
 
+cpanm --sudo Perl::lLanguageServer
+cpanm --sudo Neovim::Ext
+cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+
+
+# Ruby setup
+sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
+        sudo apt-get --assume-yes install \
+    ruby \
+    ruby-dev \
+    && sudo apt-get -y clean
+
+sudo gem install neovim
+
 # Things needed for coc-nvim
 sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
         sudo apt-get --assume-yes install \
