@@ -77,7 +77,8 @@ Plug 'kana/vim-textobj-indent'
 Plug 'jceb/vim-textobj-uri'
 Plug 'thinca/vim-textobj-between'
 
-Plug 'adelarsq/vim-matchit'
+Plug 'andymass/vim-matchup'
+
 Plug 'mileszs/ack.vim'
 
 
