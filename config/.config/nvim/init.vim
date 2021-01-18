@@ -77,6 +77,7 @@ Plug 'kana/vim-textobj-indent'
 Plug 'jceb/vim-textobj-uri'
 Plug 'thinca/vim-textobj-between'
 
+" Gives powerful text objects and jumping based on the language you are in
 Plug 'andymass/vim-matchup'
 
 Plug 'mileszs/ack.vim'
