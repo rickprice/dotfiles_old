@@ -128,6 +128,7 @@ if g:has_python3
     Plug 'simnalamburt/vim-mundo'
 endif
 
+" Plugin to handle CSV format files
 Plug 'chrisbra/csv.vim'
 
 " Improved incremental search
@@ -176,6 +177,7 @@ endif
 
 " Colour Schemes
 " - Color support plugins
+" Clap (which is loaded) also has colorscheme switching
 "Plug 'xolox/vim-colorscheme-switcher'
 "Plug 'xolox/vim-misc'
 "Plug 'vim-scripts/colorsupport.vim'
