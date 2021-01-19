@@ -17,7 +17,8 @@ let g:is_windows = has('win32')
 let g:use_coc = g:is_nvim5 || g:is_vim8
 let g:has_rust_cargo = executable('cargo')
 
-" On Windows the NeoVim configuration file init.vim goes into %USERPROFILE%/AppData/Local/nvim
+" On Windows the NeoVim configuration file init.vim goes to %USERPROFILE%/AppData/Local/nvim/init.vim
+" On Windows the Vim configuration file init.vim goes to %USERPROFILE%/vimfiles/vimrc
 
 if g:is_vim
 " Download and install vim-plug (cross platform), but for Vim
