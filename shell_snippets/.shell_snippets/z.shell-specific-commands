@@ -21,10 +21,10 @@ source_files_in_shell_specific_directory() {
     local dir=$1/$PROFILE_SHELL
 
     if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
-        for file in "$dir"/*; do
+        for file in `ls -v $dir/*`; do
           [[ -x "$file" && -f "$file" && -r "$file" ]] && . "$file"
         done
     fi
 }
 
-source_files_in_shell_specific_directory ./shell-specific-commands
+source_files_in_shell_specific_directory ~/.shell_snippets/shell-specific-commands
