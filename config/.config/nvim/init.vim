@@ -17,6 +17,8 @@ let g:is_windows = has('win32')
 let g:use_coc = g:is_nvim5 || g:is_vim8
 let g:has_rust_cargo = executable('cargo')
 
+let g:init_vim_directory = fnamemodify($MYVIMRC,":p:h")
+
 if g:is_vim
 " Download and install vim-plug (cross platform), but for Vim
 if empty(glob(
@@ -123,6 +125,10 @@ if g:has_python3 || g:is_nvim5
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+    " Load Ultisnips user configuration
+    let path = expand('%:p:h')
+    exec 'source' path . '/ultisnips.vim'
 endif
 
 if g:has_python3
