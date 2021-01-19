@@ -127,8 +127,7 @@ if g:has_python3 || g:is_nvim5
     let g:UltiSnipsEditSplit="vertical"
 
     " Load Ultisnips user configuration
-    let path = expand('%:p:h')
-    exec 'source' path . '/ultisnips.vim'
+    source ~/.config/nvim/ultisnips.vim
 endif
 
 if g:has_python3
