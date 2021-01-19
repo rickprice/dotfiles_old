@@ -17,7 +17,7 @@ let g:is_windows = has('win32')
 let g:use_coc = g:is_nvim5 || g:is_vim8
 let g:has_rust_cargo = executable('cargo')
 
-let g:init_vim_directory = fnamemodify($MYVIMRC,":p:h")
+" On Windows the NeoVim configuration file init.vim goes into %USERPROFILE%/AppData/Local/nvim
 
 if g:is_vim
 " Download and install vim-plug (cross platform), but for Vim
@@ -32,9 +32,9 @@ if empty(glob(
 else
 " Download and install vim-plug (cross platform), but for NeoVim
 if empty(glob(
-                \ '$HOME/' . (has('win32') ? 'AppData/Local/nvim/site' : '.local/share/nvim/site') . '/autoload/plug.vim'))
+                \ '$HOME/' . (has('win32') ? 'AppData/Local/nvim' : '.local/share/nvim/site') . '/autoload/plug.vim'))
   execute '!curl -fLo ' .
-      \ (has('win32') ? '\%USERPROFILE\%/vimfiles' : '$HOME/.local/share/nvim/site') .
+      \ (has('win32') ? '\%USERPROFILE\%/AppData/Local/nvim' : '$HOME/.local/share/nvim/site') .
           \ '/autoload/plug.vim --create-dirs ' .
               \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
                 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
