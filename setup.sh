@@ -31,3 +31,6 @@ ln -sf ~/.config/nvim/init.vim ~/.vimrc
 
 # Reconfigure CapsLock to be Ctrl
 sudo vi -c '%s/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"' /etc/default/keyboard -c 'wq'
+
+nvim +PluginInstall +qall
+gvim +PluginInstall +qall

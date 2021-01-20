@@ -65,3 +65,6 @@ Copy-File ([string](Get-Location) + '\config\.config\nvim\ultisnips.vim') ($ENV:
 Copy-File ([string](Get-Location) + '\config\.config\nvim\coc-settings.json') ($ENV:USERPROFILE + '\AppData\Local\nvim\coc-settings.json') $false
 Copy-File ([string](Get-Location) + '\config\.config\nvim\coc-settings.json') ($ENV:USERPROFILE + '\vimfiles\coc-settings.json') $false
 
+Write-Host "Setup (n)Vimm plugins"
+nvim +PlugInstall +qall
+vim +PlugInstall +qall
