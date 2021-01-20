@@ -149,7 +149,9 @@ Plug 'tpope/vim-sensible'
 " Fern
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
-Plug 'LumaKernel/fern-mapping-fzf.vim'
+if !g:is_windows
+    Plug 'LumaKernel/fern-mapping-fzf.vim'
+endif
 Plug 'lambdalisue/fern-mapping-git.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 

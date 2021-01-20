@@ -45,23 +45,14 @@ function Copy-File ([System.String] $sourceFile, [System.String] $destinationFil
     } 
 }
 
+Write-Host "Fix execution policy"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-Write-Host "Installing required software"
-pip install neovim
-npm install -g neovim
-gem install neovim
+Write-Host "Installing Vim software"
+choco install -y vim
+choco install -y neovim --pre
 
-Write-Host "Copying Vim configuration files to correct locations"
-
-# init.vim
-Copy-File ([string](Get-Location) + '\config\.config\nvim\init.vim') ($ENV:USERPROFILE + '\AppData\Local\nvim\init.vim') $false
-Copy-File ([string](Get-Location) + '\config\.config\nvim\init.vim') ($ENV:USERPROFILE + '\vimfiles\vimrc') $false
-
-# ultisnips.vim
-Copy-File ([string](Get-Location) + '\config\.config\nvim\ultisnips.vim') ($ENV:USERPROFILE + '\AppData\Local\nvim\ultisnips.vim') $false
-Copy-File ([string](Get-Location) + '\config\.config\nvim\ultisnips.vim') ($ENV:USERPROFILE + '\vimfiles\ultisnips.vim') $false
-
-# coc-settings.json
-Copy-File ([string](Get-Location) + '\config\.config\nvim\coc-settings.json') ($ENV:USERPROFILE + '\AppData\Local\nvim\coc-settings.json') $false
-Copy-File ([string](Get-Location) + '\config\.config\nvim\coc-settings.json') ($ENV:USERPROFILE + '\vimfiles\coc-settings.json') $false
-
+Write-Host "Installing other required software"
+choco install -y nodejs
+choco install -y python3
+choco install -y ruby
