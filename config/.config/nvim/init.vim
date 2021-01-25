@@ -193,10 +193,15 @@ endif
 "Plug 'vim-scripts/colorsupport.vim'
 
 " - Color plugins
+Plug 'romainl/vim-dichromatic'
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
+
 "Plug 'rakr/vim-one'
 "Plug 'challenger-deep-theme/vim'
-Plug 'romainl/vim-dichromatic'
+
+"This is for you Noah
+"Plug 'dracula/vim', { 'as': 'dracula' }
+
 
 call plug#end()
 
@@ -224,6 +229,10 @@ else
     :colorscheme dichromatic
     :set background=dark
 endif
+
+" Hey Noah, this is for you...
+":colorscheme dracula
+":set background=dark
 
 " ZFZ Setup
 nnoremap <silent> <C-p> :Files<CR>
