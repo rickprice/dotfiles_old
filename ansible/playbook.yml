@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- name: Setup Frederick Price personal computer
+  hosts: localhost
+  connection: local
   become: yes
 
   pre_tasks:
@@ -13,6 +15,42 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   tasks:
+  - name: Typical Software I use
+    apt:
+      pkg:
+      - software-properties-common
+      - curl
+      - bash
+      - zsh
+      - ripgrep
+      - stow
+      - universal-ctags
+      - golang
+      - locales
+      - fd-find
+      - fzf
+      - vifm
+      - dos2unix
+      - colorized-logs
+      - pass
+      - mutt
+      - figlet
+      - tmux
+      - git
+      - git-lfs
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Needed for vim-clap and (vim) todoist plugins
+    apt:
+      pkg:
+      - libssl-dev
+      - build-essential
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
   - name: Python packages
     apt:
       pkg:
@@ -23,6 +61,59 @@
       - python3-pip
       - python3-pynvim
       - python3-venv
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Perl packages
+    apt:
+      pkg:
+      - libcode-tidyall-perl
+      - libdbd-pg-perl
+      - cpanminus
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Ruby packages
+    apt:
+      pkg:
+      - ruby
+      - ruby-dev
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Things needed for coc-nvim
+    apt:
+      pkg:
+      - nodejs
+      - yarn
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Things needed for oh-my-zsh
+    apt:
+      pkg:
+      - build-essential
+      - curl
+      - file
+      - powerline
+      - fonts-powerline
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Things needed for Alacritty terminal
+    apt:
+      pkg:
+      - cmake
+      - pkg-config
+      - libfreetype6-dev
+      - libfontconfig1-dev
+      - libxcb-xfixes0-dev
+      - python3
       state: latest
       cache_valid_time: 3600
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

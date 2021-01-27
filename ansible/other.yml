@@ -1,0 +1,91 @@
+---
+- hosts: all
+  become: yes
+
+  pre_tasks:
+  - name: Update cache before we get into anything
+    apt:
+      state: latest
+      force_apt_get: true
+      update_cache: true
+      cache_valid_time: 3600
+    become: yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  tasks:
+  - name: Python packages
+    apt:
+      pkg:
+      - black
+      - flake8
+      - mypy
+      - python-is-python3
+      - python3-pip
+      - python3-pynvim
+      - python3-venv
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Build Tools
+    apt:
+      pkg:
+      - build-essential
+      - default-jre-headless
+      - git-lfs
+      - libmagic-dev
+      - libssl-dev
+      - libxml2-dev
+      - neovim
+      - nodejs
+      - powerline
+      - yarn
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: System Tools
+    apt:
+      pkg:
+      - ack
+      - awscli
+      - dos2unix
+      - docker.io
+      - fd-find
+      - fzf
+      - golang
+      - iputils-ping
+      - jq
+      - libpq-dev
+      - locales
+      - postgresql-client
+      - postgresql-common
+      - ripgrep
+      - splitpatch
+      - stow
+      - universal-ctags
+      - unzip
+      - zsh
+      state: latest
+      cache_valid_time: 3600
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Upgrade all apt packages
+    apt:
+      upgrade: dist
+      force_apt_get: true
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: Install hub
+    community.general.snap:
+      name: hub
+      classic: yes
+
+  - name: Install yq
+    community.general.snap:
+      name: yq
+
+  roles:
+  - role: tobybro.perlbrew
+    perl_user: vagrant
+    perl_version: perl-5.28.3
