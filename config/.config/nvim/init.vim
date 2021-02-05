@@ -580,6 +580,7 @@ nnoremap <leader>s :set spell!<cr>
 " Vim Fugitive Mapping so I can ccommit, and push in one command
 nnoremap <silent> <Leader>cc :Gcommit \| :Gpush<CR>
 
+" ------------------------------------------------------------------------------
 " FileType mappings
 augroup filetype_yaml
   autocmd!
