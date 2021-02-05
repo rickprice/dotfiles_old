@@ -578,7 +578,7 @@ set nospell
 nnoremap <leader>s :set spell!<cr>
 
 " Vim Fugitive Mapping so I can ccommit, and push in one command
-nnoremap <silent> <Leader>cc :Gcommit <bar> <CR>:Gpush<CR>
+nnoremap <silent> <Leader>cc :Gcommit <CR> <bar> :Gpush<CR>
 
 " ------------------------------------------------------------------------------
 " FileType mappings
