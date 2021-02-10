@@ -579,6 +579,7 @@ set spell spelllang=en_ca
 set nospell
 nnoremap <leader>s :set spell!<cr>
 
+" ------------------------------------------------------------------------------
 " FileType mappings
 augroup filetype_yaml
   autocmd!
