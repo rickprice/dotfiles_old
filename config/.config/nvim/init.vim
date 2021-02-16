@@ -585,7 +585,7 @@ augroup filetype_yaml
   " Setup shifts and tabstops etc for YAML files
   autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
 
-" To get this effect for a singel file you can add this to the top of a file:
+" To get this effect for a single file you can add this to the top of a file:
 " # vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab:
 "
 " To change files that have a mix of tabs and spaces to all spaces
@@ -598,6 +598,14 @@ augroup filetype_json
   autocmd!
 
   autocmd FileType json setlocal foldmethod=syntax
+augroup END
+
+augroup filetype_csv
+  autocmd!
+
+  " Format the columns more nicely when CSV buffer loads
+  autocmd BufRead,BufWritePost * :%ArrangeColumn!
+  autocmd BufWritePre * :%UnArrangeColumn
 augroup END
 
 augroup filetype_perl
