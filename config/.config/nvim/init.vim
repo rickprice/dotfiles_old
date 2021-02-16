@@ -606,8 +606,8 @@ augroup filetype_csv
   autocmd!
 
   " Format the columns more nicely when CSV buffer loads
-  autocmd BufRead,BufWritePost * :%ArrangeColumn!
-  autocmd BufWritePre * :%UnArrangeColumn
+  autocmd BufRead,BufWritePost *.csv execute ":%ArrangeColumn!"
+  autocmd BufWritePre *.csv execute ":%UnArrangeColumn"
 augroup END
 
 augroup filetype_perl
