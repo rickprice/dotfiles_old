@@ -1,0 +1,4 @@
+# set PATH so it includes Cargo if it exists
+if [ -d "$HOME/.cargo/bin" ] ; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi

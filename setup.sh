@@ -11,9 +11,9 @@ stow --dotfiles local
 stow --dotfiles tmux
 stow --dotfiles mutt
 
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+# sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+# sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+# sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 
 ### Configure ZSH things ###
 
@@ -33,5 +33,5 @@ ln -sf ~/.config/nvim/init.vim ~/.vimrc
 # Now handled by the Ansible setup script DEV-ENV
 # sudo vi -c '%s/XKBOPTIONS=""/XKBOPTIONS="ctrl:nocaps"' /etc/default/keyboard -c 'wq'
 
-nvim +PluginInstall +qall
-gvim +PluginInstall +qall
+# nvim +PluginInstall +qall
+# gvim +PluginInstall +qall

@@ -221,12 +221,14 @@ endif
 ":set background=light
 
 " gVim would have 'gui_running'
+" We silently ignore failures on the colorscheme, this is because they may not
+" be loaded yet when (Neo)Vim first loads the configuration
 if has("gui_running")
-    :colorscheme humanoid
+    :silent! colorscheme humanoid
     :set background=light
 else
 "    :colorscheme challenger_deep
-    :colorscheme dichromatic
+    :silent! colorscheme dichromatic
     :set background=dark
 endif
 
