@@ -23,6 +23,7 @@ let g:use_coc = g:is_nvim5 || g:is_vim8
 let g:has_rust_cargo = executable('cargo')
 let g:is_windows = has('win32')
 
+" +++++++++++++++++++++++++++++++ Start of Vim-Plug auto-download +++++++++++++++++++++++++++++++
 " On Windows the NeoVim configuration file init.vim goes to %USERPROFILE%/AppData/Local/nvim/init.vim
 " On Windows the Vim configuration file init.vim goes to %USERPROFILE%/vimfiles/vimrc
 let g:xdg_config_home = $XDG_CONFIG_HOME
@@ -34,7 +35,7 @@ let g:autoload_plug = '/autoload/plug.vim'
 " Note that $HOME is a somewhat magic variable that is fixed up on Windows for
 " us
 if g:is_vim
-    if g:is_windows
+    if has('win32')
         let g:plug_location = $HOME . '/vimfiles'
         let g:plugin_location=''
     else
@@ -44,7 +45,7 @@ if g:is_vim
 else
     " For Neovim here, we also take the XDG locations into account if they are
     " defined
-    if g:is_windows
+    if has('win32')
         let g:plug_location = $HOME . '/AppData/Local/nvim/vimfiles'
         let g:plugin_location = ''
     else
@@ -75,6 +76,13 @@ else
     call plug#begin(g:plugin_location)
 endif
 
+" ========== Put your plugins here ==========
+
+
+" ========== Put your plugins here ==========
+" Use the below to finish your plugins (uncomment)
+"call plug#end()
+" +++++++++++++++++++++++++++++++ End of Vim-Plug auto-download +++++++++++++++++++++++++++++++
 
 if g:use_coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
