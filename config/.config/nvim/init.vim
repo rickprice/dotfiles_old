@@ -56,7 +56,7 @@ else
         if len(g:xdg_data_home) == 0
             let g:plugin_location = $HOME . '/.local/shared/nvim/plugged'
         else
-            let g:plugin_location = '$XDG_DATA_HOME/nvim/plugged'
+            let g:plugin_location = g:xdg_data_home . '/nvim/plugged'
         endif
     endif
 endif
