@@ -25,36 +25,38 @@ let g:is_windows = has('win32')
 
 " On Windows the NeoVim configuration file init.vim goes to %USERPROFILE%/AppData/Local/nvim/init.vim
 " On Windows the Vim configuration file init.vim goes to %USERPROFILE%/vimfiles/vimrc
-let g:xdg_config_home = '$XDG_CONFIG_HOME'
-let g:xdg_data_home = '$XDG_DATA_HOME'
+let g:xdg_config_home = $XDG_CONFIG_HOME
+let g:xdg_data_home = $XDG_DATA_HOME
 let g:plug_github_url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 let g:autoload_plug = '/autoload/plug.vim'
 
 " Figure out where the plug-vim and plugin files go
+" Note that $HOME is a somewhat magic variable that is fixed up on Windows for
+" us
 if g:is_vim
     if g:is_windows
-        let g:plug_location='$HOME/vimfiles'
+        let g:plug_location = $HOME . '/vimfiles'
         let g:plugin_location=''
     else
-        let g:plug_location='$HOME/.vim'
-        let g:plugin_location=''
+        let g:plug_location = $HOME . '/.vim'
+        let g:plugin_location = ''
     endif
 else
     " For Neovim here, we also take the XDG locations into account if they are
     " defined
     if g:is_windows
-        let g:plug_location='$HOME/AppData/Local/nvim/vimfiles'
-        let g:plugin_location=''
+        let g:plug_location = $HOME . '/AppData/Local/nvim/vimfiles'
+        let g:plugin_location = ''
     else
         if len(g:xdg_config_home) == 0
-            let g:plug_location='$HOME/.local/share/nvim/site'
+            let g:plug_location = $HOME . '/.local/share/nvim/site'
         else
             let g:plug_location= g:xdg_config_home . '/nvim/site'
         endif
         if len(g:xdg_data_home) == 0
-            let g:plugin_location='$HOME/.local/shared/nvim/plugged'
+            let g:plugin_location = $HOME . '/.local/shared/nvim/plugged'
         else
-            let g:plugin_location='$XDG_DATA_HOME/nvim/plugged'
+            let g:plugin_location = '$XDG_DATA_HOME/nvim/plugged'
         endif
     endif
 endif
