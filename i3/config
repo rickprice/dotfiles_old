@@ -1,0 +1,436 @@
+##########
+# colors #
+##########
+
+# get color from xressource configuration - variable_name xressource_color fallback
+
+# special
+set_from_resource $foreground foreground #C6C6C6
+set_from_resource $background background #1C1C1C
+set_from_resource $cursorColor cursorColor #C6C6C6
+
+# black
+set_from_resource $black1 color0 #303030
+set_from_resource $black2 color8 #444444
+set $trueblack #000000
+
+# red
+set_from_resource $red1 color1 #d75f5f
+set_from_resource $red2 color9 #d75f5f
+
+# green
+set_from_resource $green1 color2 #87AF87
+set_from_resource $green2 color10 #87AF87
+
+# yellow
+set_from_resource $yellow1 color3 #ffd75f
+set_from_resource $yellow2 color11 #ffd75f
+
+# blue
+set_from_resource $blue1 color4 #87afd7
+set_from_resource $blue2 color12 #87afd7
+
+# magenta
+set_from_resource $cyan1 color5 #afafd7
+set_from_resource $cyan2 color13 #afafd7
+
+# cyan
+set_from_resource $cyan1 color6 #afd7ff
+set_from_resource $cyan2 color14 #afd7ff
+
+# white
+set_from_resource $white1 color7 #e4e4e4
+set_from_resource $white2 color15 #ffffff
+
+###########
+# general #
+###########
+
+#---Starting External Scripts---# #
+
+# exec urxvtd daemon
+# urxvtc run via Xinitrc because otherwise the scratchpad don't work (race condition?)
+# exec --no-startup-id ~/.i3/scripts/urxvtc.sh
+
+# resize correctly in vmware
+exec --no-startup-id vmware-user-suid-wrapper
+exec --no-startup-id vmware-user
+
+# start owncloud client
+exec --no-startup-id nextcloud &
+
+#wallpaper
+exec --no-startup-id $XDG_CONFIG_HOME/.fehbg
+
+#Hide the mouse after some time 
+# exec --no-startup-id unclutter
+
+# launch scripts
+exec --no-startup-id /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+# launch redshift
+exec --no-startup-id redshift &
+
+# launch dunst
+exec --no-startup-id dunst
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# i3 config file (v4)
+
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# set the modifier (Mod4: cmd)
+# To see a complete list, run xmodmap
+set $mod Mod4
+
+# Hide the bar
+# bindsym $mod+h bar mode toggle
+
+# Mouse doesn't jump from one screen to another
+mouse_warping none
+
+bindsym $mod+u border none
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Inconsolata 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run -l 10 -fn Inconsolata -nb '$background' -nf '$foreground' -sb '$red1'
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
+
+bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace prev
+
+## Splits
+## Mod1 is the Alt key (run xmodmap to see a complete list)
+
+# split in horizontal orientation
+bindsym $mod+Mod1+v split v
+
+# split in vertical orientation
+bindsym $mod+Mod1+h split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Size of floating windows
+floating_minimum_size 400 x 300
+floating_maximum_size 1600 x 1200
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# no focus following the mouse
+focus_follows_mouse no
+
+# using the same workspace shortcut will focus on your last 
+workspace_auto_back_and_forth yes
+
+# workspace layout by default for all workspaces
+workspace_layout stacking
+
+#############
+# workspace #
+#############
+
+set $terms "1: terms"
+set $web "2: web"
+set $multimedia "3: multi"
+set $design "4: design"
+set $office "5: office"
+set $mindmap "6: mindmap"
+set $vm "7: VM"
+
+# switch to workspace
+bindsym $mod+1 workspace $terms
+bindsym $mod+2 workspace $web
+bindsym $mod+3 workspace $multimedia
+bindsym $mod+4 workspace $design
+bindsym $mod+5 workspace $office
+bindsym $mod+6 workspace $mindmap
+bindsym $mod+7 workspace $vm
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $terms
+bindsym $mod+Shift+2 move container to workspace $web
+bindsym $mod+Shift+3 move container to workspace $multimedia
+bindsym $mod+Shift+4 move container to workspace $design
+bindsym $mod+Shift+5 move container to workspace $office
+bindsym $mod+Shift+6 move container to workspace $mindmap
+bindsym $mod+Shift+7 move container to workspace $vm
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# bind software to workspace
+# can use xprop - WM_CLASS(STRING) = "urxvt", "URxvt"
+assign [class="firefox" instance="Navigator"] → $web
+assign [class="Min" instance="min"] → $web
+assign [class="Chromium" instance="chromium"] → $web
+assign [class="Slack" instance="slack"] → $web
+
+assign [class="mpv" instance="gl"] → $multimedia
+assign [class="Easytag" instance="easytag"] → $multimedia
+assign [class="Steam" instance="Steam"] → $multimedia
+assign [class="Lutris" instance="lutris"] → $multimedia
+assign [class="Deadbeef" instance="deadbeef"] → $multimedia
+
+assign [class="Thunderbird" instance="Mail"] → $office
+assign [class="Thunderbird" instance="Msgcompose"] → $office
+
+assign [instance="nomacs"] → $design
+assign [class="digikam" instance="digikam"] → $design
+assign [class="Darktable" instance="darktable"] → $design
+assign [class="Gimp" instance="gimp"] → $design
+assign [class="scribus" instance="scribus"] → $design
+assign [class="Inkscape" instance="org.inkscape.Inkscape"] → $design
+
+assign [class="libreoffice"] → $office
+assign [class="Doublecmd" instance="doublecmd"] → $office
+assign [class="Joplin" instance="joplin"] → $office
+assign [class="calibre" instance="calibre-gui"] → $office
+
+assign [instance="FreeMind"] → $mindmap
+
+assign [class="VirtualBox Manager" instance="virtualBox Manager"] → $vm
+assign [class="VirtualBox Machine" instance="virtualBox Machine"] → $vm
+
+####################
+# restart / reload #
+####################
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+F12 exec i3-msg exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# floating pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# floating windows
+for_window [class="KeePassXC"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Gcolor2"] floating enable
+for_window [instance="gnome-alsamixer" class="Gnome-alsamixer"] floating enable
+for_window [instance="Thunar" class="Thunar"] floating enable
+
+# Terminal scratchpad with tmux and three windows: 1.term / 2.vim (on a temp file) / 3.translation CLI
+for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
+bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
+exec urxvtc -name urxvt_scratchpad -e tmux new-session -d -s scratchpad \; new-window -n vim 'nvim +e /tmp/nvim-tmp.md' \; new-window -n trans 'trans -I' \; new-window -n vpn 'cd $XDG_CONFIG_HOME/.vpn' \; attach-session -d -t scratchpad\;
+
+# htop scratchpad
+for_window [instance="htop_scratchpad"] move to scratchpad, border none
+bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
+exec urxvtc -name htop_scratchpad -e htop
+
+# keepass scratchpad
+for_window [class="KeePassXC"] move to scratchpad
+bindsym $mod+Shift+a [class="KeePassXC"] scratchpad show
+exec keepassxc
+
+# bc scratchpad
+for_window [instance="bc_scratchpad"] move to scratchpad, border none
+bindsym $mod+Shift+b [instance="bc_scratchpad"] scratchpad show
+exec urxvtc -name bc_scratchpad -e bc -l
+
+# configuration of some software
+for_window [class="URxvt*"] border pixel 1
+
+# start softwares and command lines in workspaces
+exec i3-msg workspace $office; exec joplin-desktop
+exec i3-msg workspace $terms; exec /usr/bin/urxvtc
+
+##########
+# DESIGN #
+##########
+
+# hide borders
+hide_edge_borders both
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #333333 $black2 $white2 #285577
+client.focused_inactive #333333 $background $foreground #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           $red1   $red1   $white2 $red1     $red1
+client.placeholder      #000000 #0c0c0c $white2 #000000   #0c0c0c
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3status --config $I3_CONFIG/i3status.conf
+    # Disable all tray icons
+    tray_output none
+    # tray_output primary
+    colors {
+        background $black2
+        statusline $white2
+        separator $white2 
+
+        #                  border background text
+        focused_workspace  $background $background $red1
+        active_workspace   $black2 $black1 $white2
+        inactive_workspace $black1 $black2 $foreground
+        urgent_workspace   $red1 $red1 $white2
+        binding_mode       $background $red2 $white2
+    }
+}
+
+# lockscreen
+# set $i3lockwall i3lock -i $I3_CONFIG/wallpapers/2016-04-07-09.34-Village-in-the-sky.png -t
+set $i3lockwall sh $I3_CONFIG/scripts/lock.sh
+
+# In order to cache an image
+# exec --no-startup-id betterlockscreen -u $I3_CONFIG/wallpapers/snow_tree.png 
+
+# exec --no-startup-id betterlockscreen -w
+# set $i3lockwall exec betterlockscreen --lock
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id $i3lockwall
+
+#wallpaper and transparency
+# exec --no-startup-id compton -b --active-opacity 1 --config $XDG_CONFIG_HOME/.compton --backend xrender --vsync opengl
+exec --no-startup-id compton -b --active-opacity 1 --config $XDG_CONFIG_HOME/.compton --backend xrender
+
+# shutdown / restart / suspend...
+set $mode_system \
+System (l) lock, (e) logout, (s) suspend, \
+(h) hibernate, (r) reboot, (Ctrl+s) shutdown
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $i3lockwall, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, \
+    mode "default"
+    bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, \
+    mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, \
+    mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+BackSpace mode "$mode_system"
+
+## Manual management of external displays
+set $mode_display Config monitor resolution - Home Setup (h) - Without monitor (d)
+
+mode "$mode_display" {
+    bindsym h exec --no-startup-id sh $XDG_CONFIG_HOME/config_monitors/home.sh && sh $XDG_CONFIG_HOME/.fehbg, mode "default"
+    bindsym d exec --no-startup-id sh $XDG_CONFIG_HOME/config_monitors/default.sh && sh $XDG_CONFIG_HOME/.fehbg, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode "$mode_display"
+
+# Remap caps lock when new keyboard attached
+bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
+
+exec --no-startup-id $I3_CONFIG/scripts/remaps.sh
