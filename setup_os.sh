@@ -31,6 +31,7 @@ sudo apt-get --assume-yes update && sudo apt-get -yqq upgrade && \
     colorized-logs \
     pass \
     mutt \
+    xcape \
     && sudo apt-get -y clean
 
 # Needed for vim-clap and vim-todoist
